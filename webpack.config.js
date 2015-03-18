@@ -1,9 +1,9 @@
-//Load the default Brixo configuration
-var webpackConfig = require('brixo-framework/config/webpack.config.js');
 
 var _ = require('lodash');
 
-//Override webpack settings here
+// Brixo Framework Webpack Config
+// (by default builds 'main.js' and exports 'brixo' namespace into 'bundles/')
+var webpackConfig = require('brixo-framework/config/webpack.config.js');
 module.exports = _.merge(webpackConfig,{
-    entry: {application: 'main.js'}
+    // override webpack settings here,
 });

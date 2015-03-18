@@ -1,5 +1,5 @@
+var _ = require('lodash');
 module.exports = function(grunt) {
-    var _ = require('lodash');
     grunt.loadNpmTasks('grunt-open');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-karma');
@@ -7,13 +7,16 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-scaffold');
     grunt.loadTasks("./node_modules/brixo-framework/grunt-tasks");
 
-    var webpackGrunt = require('brixo-framework/config/grunt.webpack.config.js')(grunt);
-    webpackGrunt.configItems('elements');
-    webpackGrunt.configItems('components');
+    // Brixo Framework - default tasks configuration
+    var brixoGrunt = require('brixo-framework/config/gruntfile.js')(grunt);
+    // configure tasks entry points
+    brixoGrunt.configItems('elements');
+    brixoGrunt.configItems('components');
+    brixoGrunt.configItems('modules');
 
-    grunt.initConfig({
+    var projectGrunt = {
         
-        open: _.merge(webpackGrunt.open, {
+        open: _.merge(brixoGrunt.open, {
             start: {
                 path : 'http://localhost:8090/'
             }
@@ -26,17 +29,21 @@ module.exports = function(grunt) {
             }
         },
         
-        karma: _.merge(webpackGrunt.karma, {
+        karma: _.merge(brixoGrunt.karma, {
+            // override karma configurations here
         }),
 
-        webpack: _.merge(webpackGrunt.webpack, {
+        webpack: _.merge(brixoGrunt.webpack, {
+            // override webpack configurations here
         }),
 
-        "webpack-dev-server": _.merge(webpackGrunt["webpack-dev-server"], {            
+        "webpack-dev-server": _.merge(brixoGrunt["webpack-dev-server"], {          
+            // override webpack dev server configurations here  
         }),
 
-        scaffold: require('brixo-framework/scaffolding/scaffold.config.js')(grunt, webpackGrunt.configItem)
-    });
+        scaffold: require('brixo-framework/scaffolding/scaffold.config.js')(grunt, brixoGrunt.configItem)
+    };
 
+    grunt.initConfig(projectGrunt);
     grunt.registerTask('default', ['open:start', 'webpack-dev-server:start']);
 };
