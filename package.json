@@ -1,0 +1,27 @@
+{
+  "name": "brixster",
+  "version": "0.0.1",
+  "description": "Brixo Component & Element Browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt karma"
+  },
+  "author": {
+    "name": "Sven Hecht",
+    "email": "sven.hecht@citrix.com"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "devDependencies": {
+    "brixo-framework": "0.0.x",
+    "brixo-ui": "0.0.x"
+  },
+  "peerDependencies": {
+    "brixo-framework": "0.0.x",
+    "brixo-ui": "0.0.x"
+  },
+  "dependencies": {
+    "flux": "^2.0.1",
+    "react": "^0.12.2"
+  }
+}

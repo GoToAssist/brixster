@@ -1,0 +1,36 @@
+@import '../../shared/styles/main';
+
+.stackpanel {
+	&.vertical {
+		width: 100%;
+		height: 100%;
+
+		&.child-fill div > * {
+			height: 100%;
+		}
+
+		&.horizontal-child-center div {
+			text-align: center;
+		}
+	}
+
+	&.horizontal {
+		width: 100%;
+		height: 100%;
+
+		&.child-fill div  > * {
+			width: 100%;
+		}
+
+		&.horizontal-child-center div {
+			text-align: center;
+		}
+
+		div {
+			height: 100%;
+			float: left;
+		}
+
+		@include clearfix();
+	}
+}
