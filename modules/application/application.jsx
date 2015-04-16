@@ -54,13 +54,19 @@ var Application = React.createClass({
         }));
     },
 
+    closeAddElementDialog: function() {
+        this.setState(_.extend(this.state, {
+            addElementPopupVisible: false
+        }));
+    },
+
     render () {
         var classes = new ClassMap('application');
 
         var modal = ( <div/> );
 
         if (this.state.addElementPopupVisible) {
-            modal = ( <AddElementDialog/> );
+            modal = ( <AddElementDialog onClose={this.closeAddElementDialog}/> );
         }
 
         return (

@@ -1,0 +1,20 @@
+/**
+ * FillLayout
+ */
+
+@import '../../shared/styles/main';
+
+.brx-fill-layout {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.brx-mask {
+    overflow: hidden;   
+}
+
+.brx-scrollable {
+    overflow: auto;   
+}

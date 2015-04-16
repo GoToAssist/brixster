@@ -28,7 +28,7 @@ var ElementList = React.createClass({
 
         return (
             <div className={classes}>
-                <List type="table" variation="celled" cols="100px 50% * * * * *">
+                <List type="table" variation="celled" cols="14% 14% 14% 14% 14% 14%">
                     <List.Item role="header">
                         <List.Col>Element</List.Col>
                         <List.Col>Description</List.Col>
@@ -37,19 +37,19 @@ var ElementList = React.createClass({
                         <List.Col>Modified</List.Col>
                         <List.Col>Rating</List.Col>
                         <List.Col>Rate it</List.Col>
-
-                        {this.props.elements.map(function(element) {
-                            return ( <List.Item key={element.id}>
-                                        <List.Col>{element.name}</List.Col>
-                                        <List.Col>{element.description}</List.Col>
-                                        <List.Col>{element.repository}</List.Col>
-                                        <List.Col>{element.maintainer}</List.Col>
-                                        <List.Col>{element.modified}</List.Col>
-                                        <List.Col>{element.ratings}</List.Col>
-                                        <List.Col><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/></List.Col>
-                                     </List.Item> );
-                        })}
                     </List.Item>
+
+                    {this.props.elements.map(function(element) {
+                        return ( <List.Item key={element.id}>
+                                    <List.Col>{element.name}</List.Col>
+                                    <List.Col>{element.description}</List.Col>
+                                    <List.Col>{element.repository}</List.Col>
+                                    <List.Col>{element.maintainer}</List.Col>
+                                    <List.Col>{element.modified}</List.Col>
+                                    <List.Col>{element.ratings}</List.Col>
+                                    <List.Col><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/></List.Col>
+                                 </List.Item> );
+                    })}
                 </List>
             </div>
         );

@@ -1,0 +1,49 @@
+/**
+ * PositionLayout
+ */
+
+@import '../../shared/styles/main';
+@import '../../shared/styles/_mixin';
+
+.brx-position-layout {
+    position: absolute;
+    display: block;
+}
+
+.brx-position-layout.brx-fixed {
+    position: fixed;
+}
+
+.brx-position-layout.brx-centered {
+    top: 0;
+    left: 0;
+    top: 50%;
+    left: 50%;
+    @include translate(-50%, -50%);
+}
+
+.brx-position-layout.brx-topRight {
+    top: 0;
+    right: 0;
+}
+
+.brx-position-layout.brx-topLeft {
+    top: 0;
+    left: 0;
+}
+
+.brx-position-layout.brx-bottomRight {
+    bottom: 0;
+    right: 0;
+}
+
+.brx-position-layout.brx-bottomLeft {
+    bottom: 0;
+    left: 0;
+}
+
+.brx-position-layout.brx-bottom {
+    bottom: 0;
+    left: 50%;
+    @include translate(-50%, 0);
+}

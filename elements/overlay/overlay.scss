@@ -1,0 +1,57 @@
+/**
+ * Overlay
+ */
+
+$overlay-duration: 0.3s;
+
+.brx-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9998;
+}
+
+.brx-overlay > div {
+    z-index: 9999;
+}
+
+.brx-overlay__curtain {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    // set by inline style values
+    background: #666;
+    opacity: 0.4;
+    z-index: 9998;
+
+    
+}
+
+/**
+ * Animation: fade
+ */
+
+.brx-overlay--fade-enter {
+  opacity: 0.01;
+  transition: opacity $overlay-duration ease-in;
+}
+
+.brx-overlay--fade-enter.brx-overlay--fade-enter-active {
+  opacity: 1;
+}
+
+.brx-overlay--fade-leave {
+  opacity: 1;
+  transition: opacity $overlay-duration ease-in;
+}
+
+.brx-overlay--fade-leave.brx-overlay--fade-leave-active {
+  opacity: 0.01;
+}

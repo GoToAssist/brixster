@@ -1,0 +1,166 @@
+/**
+ * Modal
+ */
+
+@import '../../shared/styles/main';
+
+$modal-spacing: 20px;
+$header-height: 50px;
+$footer-height: 85px;
+
+$modal-background-color: rgb(240, 245, 248);
+$modal-font-color: rgb(43,48,60);
+
+$modal-font-family: "citrixsans",Arial,Helvetica,sans-serif;
+$modal-font: 100 12pt/25px $modal-font-family;
+
+.brx-modal {
+    display: block;
+    height: 100%;
+    
+    background: $modal-background-color;
+    color: $modal-font-color;
+    
+    font: $modal-font;
+    box-shadow: 0px 3px 10px #999;
+}
+
+.brx-modal__header,
+.brx-modal__footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+
+    display: block;
+    overflow: hidden;
+    padding: 0 $modal-spacing;
+    background: $modal-background-color;
+}
+
+.brx-modal__header {
+    top: 0;
+    height: $header-height;
+    padding-top: $modal-spacing;
+}
+
+.brx-modal__footer {
+    bottom: 0;
+    height: $footer-height;
+    text-align: right;
+}
+
+.brx-modal__body {
+    display: block;
+    height: 100%;
+    overflow: hidden;
+}
+
+.brx-modal__body.brx-scrollable {
+    overflow: auto;
+}
+
+
+
+/**
+ * Body Style
+ */
+
+.brx-modal__body-inner {
+    margin-bottom: $footer-height + $modal-spacing;
+    padding: 0 $modal-spacing;
+}
+
+.brx-modal__header + .brx-modal__body .brx-modal__body-inner { 
+    margin-top: $header-height + $modal-spacing;
+}
+
+.brx-modal__body:last-child  .brx-modal__body-inner {
+    margin-bottom: 0;
+}
+
+.brx-modal__outline {
+    background: #fff;
+    margin: auto (-$modal-spacing);
+    padding: ($modal-spacing / 2) $modal-spacing;
+}
+
+
+
+
+/**
+ * Header Style
+ */
+
+.brx-modal__header .brx-header {
+    margin: 0;
+    font-weight: normal;
+    color: $modal-font-color;
+    font: 100 18pt/30px $modal-font-family;
+}
+
+.brx-modal__header > .brx-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px;
+    border: none;
+    background: none;
+    color: $blue;
+
+    & .brx-icon {
+        margin: 0
+    }
+
+    &:hover {
+        background: none;
+        color: black;
+    }
+}
+
+
+
+
+/**
+ * Footer Style
+ */
+
+.brx-modal__footer-inner {
+    margin: $modal-spacing 0 0 0;
+}
+
+.brx-modal__hint {
+    float: left;
+    font: 100 9pt/45px $modal-font-family;
+    font-size: 0.8em;
+    font-style: italic;
+}
+
+.brx-modal__footer.brx-left {
+    text-align: left;
+
+    .brx-modal__hint {
+        float: right;
+    }
+}
+
+
+
+
+
+.brx-dismiss-button > .brx-button {
+    padding: 10px;
+    border: none;
+    background: none;
+    color: $blue;
+
+    & .brx-icon {
+        margin: 0
+    }
+
+    &:hover {
+        background: none;
+        color: black;
+    }
+}
+

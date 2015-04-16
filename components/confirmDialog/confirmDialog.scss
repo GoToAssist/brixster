@@ -1,4 +1,42 @@
 @import '../../shared/styles/main';
+@import '../../shared/styles/mixin';
 
-.confirm-dialog {
+.brx-confirm-dialog__inner {
+    padding: 20px 0;
+    p {
+        margin: 0;
+    }
+}
+
+/**
+ * Animation: slide
+ * this is creepy and need to be improved!
+ */
+
+$animation-duration: 0.3s;
+
+.brx-confirm-dialog--fade-enter {
+  opacity: 0.01;
+  margin-bottom: -150px;
+  transition: all $animation-duration ease-in;
+}
+
+.brx-confirm-dialog--fade-enter.brx-confirm-dialog--fade-enter-active {
+  margin-bottom: 0;
+  opacity: 1;
+}
+
+.brx-confirm-dialog--fade-leave {
+  @include translate(-50%, 0);
+  opacity: 1;
+  transition: all $animation-duration ease-in;
+}
+
+.brx-confirm-dialog--fade-leave.brx-confirm-dialog--fade-leave-active {
+  opacity: 0.01;
+  @include translate(-50%, 100%);
+}
+
+.brx-confirm-dialog {
+	padding: 10px 20px 20px 20px;
 }
