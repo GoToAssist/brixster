@@ -39,9 +39,9 @@ var AddElementDialog = React.createClass({
 
     addElement () {
         var name = this.refs.nameInput.getValue();
-        var respository = this.refs.repoInput.getValue();
+        var repository = this.refs.repoInput.getValue();
         if (name) {
-            if (respository) {
+            if (repository) {
                 this.setState(_.extend(this.state, {
                     nameStatus: 'valid',
                     repoStatus: 'valid',
@@ -49,7 +49,14 @@ var AddElementDialog = React.createClass({
                 }));
                 
                 // TODO
-                ElementActions.addElement("-", {});
+                ElementActions.addElement("-", {
+                    name: name,
+                    repository: repository,
+                    description: "Loading...",
+                    maintainer: "Loading...",
+                    modified: "Loading...",
+                    ratings: "Loading..."
+                });
 
                 this.props.onClose();
             } else {

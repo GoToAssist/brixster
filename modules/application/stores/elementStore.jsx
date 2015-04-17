@@ -3,10 +3,10 @@ var EventEmitter = require('events').EventEmitter;
 var ElementConstants = require('../constants/elementConstants');
 var _ = require('lodash');
 
-var _elements = [];
+var _elements = {};
 
 function add(id, update) {
-  _elements[id] = _.merge([], _elements[id], update)
+  _elements[id] = _.merge({}, _elements[id], update)
 }
 
 function rateElement(id, rating) {

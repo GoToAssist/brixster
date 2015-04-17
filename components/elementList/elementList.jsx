@@ -24,30 +24,34 @@ var ElementList = React.createClass({
     },
 
     render () {
+        console.log("rendering elementList");
+
         var classes = new ClassMap('elementlist');
+        var elements = this.props.elements;
 
         return (
             <div className={classes}>
                 <List type="table" variation="celled" cols="14% 14% 14% 14% 14% 14%">
                     <List.Item role="header">
-                        <List.Col>Element</List.Col>
-                        <List.Col>Description</List.Col>
-                        <List.Col>Repo</List.Col>
-                        <List.Col>Maintainers</List.Col>
-                        <List.Col>Modified</List.Col>
-                        <List.Col>Rating</List.Col>
-                        <List.Col>Rate it</List.Col>
+                        <List.Col width="10%">Element</List.Col>
+                        <List.Col width="20%">Description</List.Col>
+                        <List.Col width="20%">Repo</List.Col>
+                        <List.Col width="10%">Maintainers</List.Col>
+                        <List.Col width="10%">Modified</List.Col>
+                        <List.Col width="10%">Rating</List.Col>
+                        <List.Col width="10%">Rate it</List.Col>
                     </List.Item>
 
-                    {this.props.elements.map(function(element) {
-                        return ( <List.Item key={element.id}>
-                                    <List.Col>{element.name}</List.Col>
-                                    <List.Col>{element.description}</List.Col>
-                                    <List.Col>{element.repository}</List.Col>
-                                    <List.Col>{element.maintainer}</List.Col>
-                                    <List.Col>{element.modified}</List.Col>
-                                    <List.Col>{element.ratings}</List.Col>
-                                    <List.Col><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/></List.Col>
+                    {Object.keys(elements).map(function(id) {
+                        var element = elements[id];
+                        return ( <List.Item key={id}>
+                                    <List.Col width="10%">{element.name}</List.Col>
+                                    <List.Col width="20%">{element.description}</List.Col>
+                                    <List.Col width="20%">{element.repository}</List.Col>
+                                    <List.Col width="10%">{element.maintainer}</List.Col>
+                                    <List.Col width="10%">{element.modified}</List.Col>
+                                    <List.Col width="10%">{element.ratings}</List.Col>
+                                    <List.Col width="10%"><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/><Icon icon="star"/></List.Col>
                                  </List.Item> );
                     })}
                 </List>

@@ -61,6 +61,8 @@ var Application = React.createClass({
     },
 
     render () {
+        console.log("rendering application");
+
         var classes = new ClassMap('application');
 
         var modal = ( <div/> );
